@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- SEO & Metadata -->
+    <title>GradeCalc Pro - University Grade Calculator | Abdou Calc</title>
+    <meta name="description" content="Professional grade calculator for university students. Calculate semester averages, English department grades, and export PDF reports. Works offline. | حساب المعدل الجامعي - عبدو كالك" />
+    <meta name="keywords" content="grade calculator, abdou calc, calc abdou, university grades, semester average, gradecalc pro, english department, calculate grade, حساب المعدل, حساب النقاط, عبدو كالك, جامعة, حساب المعدل الفصلي" />
+    <meta name="author" content="Abdou" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111722" media="(prefers-color-scheme: dark)" />
+    
+    <!-- Social Media Images (Open Graph / Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calc.abdouu.site/" />
+    <meta property="og:title" content="GradeCalc Pro - University Grade Calculator" />
+    <meta property="og:description" content="Calculate your semester average effortlessly. Supports custom weights and PDF exports. Optimized for English students." />
+    <meta property="og:image" content="https://calc.abdouu.site/calc.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://calc.abdouu.site/" />
+    <meta property="twitter:title" content="GradeCalc Pro - University Grade Calculator" />
+    <meta property="twitter:description" content="Calculate your semester average effortlessly. Supports custom weights and PDF exports." />
+    <meta property="twitter:image" content="https://calc.abdouu.site/calc.jpg" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/jpeg" href="/calc.jpg" />
+    <link rel="apple-touch-icon" href="/calc.jpg" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB0NKCQWQ2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KB0NKCQWQ2');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "primary-dark": "#0f4bc4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "surface-dark": "#1c2433",
+              "surface-light": "#ffffff",
+              "telegram": "#0088cc",
+              "facebook": "#1877F2"
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.3s ease-out',
+              'slide-up': 'slideUp 0.4s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .material-symbols-outlined.filled {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        min-height: 100dvh;
+        user-select: none; /* Disable text selection globally */
+        -webkit-user-select: none;
+      }
+      
+      /* Smooth transitions for theme switching */
+      *, *::before, *::after {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+      
+      .animate-spin, .animate-bounce, .animate-fade-in, .animate-slide-up {
+        transition-property: none;
+      }
+
+      input, textarea {
+        user-select: text;
+        -webkit-user-select: text;
+      }
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+
+</head>
+  <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased">
+    <div id="root"></div>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('SW registered:', registration);
+            })
+            .catch(error => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

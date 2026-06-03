@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GradeCalc Pro</string>
+    <string name="title_activity_main">GradeCalc Pro</string>
+    <string name="package_name">com.abdou.gradecalc</string>
+    <string name="custom_url_scheme">com.abdou.gradecalc</string>
+</resources>

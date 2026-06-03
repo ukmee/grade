@@ -1,0 +1,21 @@
+{
+  "name": "GradeCalc Pro",
+  "short_name": "GradeCalc",
+  "description": "Professional university grade calculator for students. Calculate semester averages, manage modules, and export PDF reports.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/calc.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "en"
+}
